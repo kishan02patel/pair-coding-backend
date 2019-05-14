@@ -8,7 +8,8 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-        keys: -dependency-cache-{{ checksum "package.json" }}
+        keys: 
+          -dependency-cache-{{ checksum "package.json" }}
       - run:
         name: install
         command: npm install
