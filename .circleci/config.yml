@@ -1,0 +1,26 @@
+version: 2
+jobs:
+	build:
+		working-directory: ~/pair-coding-backend
+		docker: 
+			-image: circleci/node:11.10.0
+			-image: mongo:4.0.5
+		steps:
+			-checkout
+			-restore_cache:
+				key: dependency-cache-{{ checksum "package.json" }} 
+			-run:
+				name: install
+				command: npm install
+			-save_cache:
+				key: dependency-cache-{{ checksum "package.json" }}
+				paths:
+					-./node_modules
+			-run:
+				name: test
+				command: npm test
+			-store_artifacts:
+				path: test-results.xml
+				prefix: tests
+			-store_test_results:
+				path: test-results.xml
