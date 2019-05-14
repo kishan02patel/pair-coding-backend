@@ -7,14 +7,14 @@ jobs:
       -image: mongo:4.0.5
     steps:
       -checkout
-      -restore_cache:
+      -restore_cache: 
         key: dependency-cache-{{ checksum "package.json" }} 
       -run:
         name: install
         command: npm install
-      -save_cache:
+      -save_cache: 
         key: dependency-cache-{{ checksum "package.json" }}
-        paths:
+        paths: 
           -./node_modules
       -run:
         name: test
