@@ -4,7 +4,8 @@
   "description": "NodeJS backend for pair coding website",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "watch": "jest --watch --collect-coverage",
     "start": "node server.js"
   },
   "author": "Kishan Patel",
@@ -19,5 +20,8 @@
     "passport-jwt": "^4.0.0",
     "socket.io": "^2.2.0",
     "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }
