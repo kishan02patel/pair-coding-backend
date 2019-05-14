@@ -20,6 +20,9 @@ jobs:
       - run:
           name: test
           command: npm test
+  deploy:
+    steps:
+      - checkout
       - run:
           name: Deploy to Heroku
           command: |
