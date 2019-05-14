@@ -21,6 +21,8 @@ jobs:
           name: test
           command: npm test
   deploy:
+    docker:
+      - image: buildpack-deps:trusty
     steps:
       - checkout
       - run:
