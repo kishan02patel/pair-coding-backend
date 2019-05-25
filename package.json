@@ -6,11 +6,13 @@
   "scripts": {
     "test": "jest",
     "watch": "jest --watch --collect-coverage",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-dev": "nodemon -r dotenv/config server.js"
   },
   "author": "Kishan Patel",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -22,6 +24,7 @@
     "validator": "^10.11.0"
   },
   "devDependencies": {
+    "dotenv": "^8.0.0",
     "jest": "^24.8.0"
   }
 }

@@ -23,6 +23,10 @@ const userSchema = new Schema({
 		enum: ['admin', 'user', 'moderator'],
 		required: true,
 		default: 'user'
+	},
+	isVerified: {
+		type: Boolean,
+		default: false
 	}
 })
 
@@ -51,6 +55,11 @@ userSchema.statics.matchUserCredentials = function (email, password) {
 		.then(user => {
 			// If user exists
 			if (user) {
+				// Check whether email is verified or not.
+				if (!user.isVerified) {
+					return Promise.reject('You have not verified your email');
+				}
+
 				// Check password
 				return bcrypt.compare(password, user.password)
 					.then(isMatched => {
