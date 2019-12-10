@@ -1,0 +1,39 @@
+{
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true,
+		"jest": true
+	},
+	"extends": [
+		"airbnb-base"
+	],
+	"globals": {
+		"Atomics": "readonly",
+		"SharedArrayBuffer": "readonly"
+	},
+	"rules": {
+		"linebreak-style": "off",
+		"indent": [
+			"error",
+			2
+		],
+		"no-console": [
+			"off"
+		],
+		"comma-dangle": [
+			"error",
+			"never"
+		],
+		"max-len": [
+			"error",
+			{
+				"ignoreComments": true,
+				"code": 100
+			}
+		],
+		"consistent-return": "off",
+		"prefer-promise-reject-errors": "off"
+	}
+}
